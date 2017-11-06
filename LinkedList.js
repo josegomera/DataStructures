@@ -1,33 +1,37 @@
-function LinkedList(){
-    var length = 0;
-    var head = null;
-
-    var Node = function (data){
+class Node {
+    constructor(data) {
         this.data = data;
-        this.next = null;
-    };
+        this.next = null
+    }
+}
 
-    this.head = function (){
-        return head;
-    };
+class LinkedList {
+    constructor() {
+        this.length = 0;
+        this.head = null
+    }
 
-    this.push = function (data){
-        var node = new Node(data);
-        if (head === null) {
-            return head = node;
+    Head() {
+        return this.head;
+    }
+
+    Push(data) {
+        const node = new Node(data);
+        if (this.head === null) {
+            return this.head = node;
         } else{
-            var currentNode = head;
+            let currentNode = this.head;
             while(currentNode.next){
                 currentNode = currentNode.next;
             }
             currentNode.next = node;
         }
-        length++;
-    };
+        this.length++;
+    }
 
-    this.remove = function (data){
-        var currentNode = head;
-        var previousNode;
+    Remove(data) {
+        let currentNode = this.head;
+        let previousNode;
         if (currentNode.data === data){
             previousNode = currentNode.next;
         }else{
@@ -37,18 +41,10 @@ function LinkedList(){
             }
             previousNode.next = currentNode.next;
         }
-        length--;
-    };
+        this.length--;
+    }
 }
 
-var ll = new LinkedList();
-ll.push(5);
-ll.push(4);
-ll.push(3);
-ll.push(2);
-ll.remove(2);
-
-console.log(ll.head());
 
 
 
